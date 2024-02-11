@@ -31,7 +31,7 @@ function api_request(method::Symbol, url::AbstractString, headers::Dict{String,S
     full_url = "$url?$query_string"
 
     # Perform the API request 
-    response = HTTP.request(method, full_url, headers=headers)
+    response = safe_request(method, full_url, headers)
 
     # Log the request details
     @info "API Request: $method $full_url"
@@ -56,6 +56,49 @@ function api_request(method::Symbol, url::AbstractString, headers::Dict{String,S
     end
 end
 
+
+# Import the necessary libraries
+using HTTP
+using Base
+
+# Define a function to perform the API request with error handling and timeouts
+"""
+    safe_request(method, full_url, headers)
+
+Safely sends an HTTP request and handles common errors.
+
+# Arguments
+- `method`: The HTTP method to use for the request.
+- `full_url`: The full URL to send the request to.
+- `headers`: A dictionary of headers to include in the request.
+
+# Returns
+- If the request is successful, returns the response object.
+- If an error occurs during the request, prints an error message and returns `nothing`.
+"""
+function safe_request(method, full_url, headers)
+    response = try
+        # Set a timeout for the request
+        HTTP.request(method, full_url, headers=headers, connect_timeout =10)
+    catch e
+        if isa(e, HTTP.IOError)
+            println("IOError occurred during the request.")
+        elseif isa(e, HTTP.StatusError)
+            println("StatusError occurred during the request.")
+        else
+            println("An unexpected error occurred during the request.")
+        end
+        return nothing
+    end
+
+    # Check the status code of the response
+    if HTTP.status(response) != 200
+        println("The request was not successful. Status code: ", HTTP.status(response))
+        return nothing
+    end
+
+    return response
+end
 
 """
     get_bigg_database_version()
