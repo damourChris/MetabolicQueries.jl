@@ -1,8 +1,12 @@
-
+```@raw html
+<div align="center">
+<img width="80%" src="http://bigg.ucsd.edu/static/assets/bigg-github.png">
+</div>
+```
 
 A simple package to query the BiGG database, right here in Julia. 
 
-# Getting Started
+## Getting Started
 
 To use this package, add it to you environment via the REPL 
 ```julia
@@ -25,14 +29,4 @@ using BiGGQuery
 - Listing BiGG models, reactions, metabolites and genes
 - Downloading BiGG models
 - Searching through the database
-- JSON Parsing 
 
-
-
-## Contributing
-
-Contributions are welcome. Please make sure to read the CONTRIBUTING.md file for guidelines on how to contribute to this project. 
-
-## License
-
-The project is licensed under the terms specified in the LICENSE file.

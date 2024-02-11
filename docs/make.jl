@@ -13,8 +13,14 @@ makedocs(;
     # This argument is only so that the sequence of pages in the sidebar is configured
     # By default all markdown files in `docs/src` are expanded and included.
     pages=[
-        "index.md",
-        "reference.md"
+        "Home" => "index.md",
+        "Retrieving Info" => [
+            "Models" => "models.md",
+            "Reactions" => "reactions.md",
+            "Metabolites" => "metabolites.md",
+        ],
+        "About BiGG Models" => "about.md",
+        "API Reference" => "reference.md"
     ],
     # Don't worry about what `CI` does in this line.
     format=Documenter.HTML(prettyurls=CI),
