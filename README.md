@@ -8,6 +8,7 @@
         <a href="https://github.com/damourChris/BiGGQuery.jl/blob/main/LICENSE">
             <img alt="Github License" src="https://img.shields.io/github/license/damourChris/BiGGQuery.jl">
         </a>
+        <a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." /></a>
     </div>
 </div>
 
@@ -15,14 +16,13 @@ This is a Julia package for interacting with the [BiGG database](http://bigg.ucs
 
 ## Data Availability 
 
-You can access the database directly on the website: [[BiGG database](http://bigg.ucsd.edu/)](http://bigg.ucsd.edu/).
+You can access the database directly on the website: [BiGG database](http://bigg.ucsd.edu/).
 
 
-## Structure
+## Project Structure
 
 The project is structured as follows:
 
-- BiGGQuery.jl: The main module file. It includes other necessary files and sets up logging.
 - downloads.jl: Downloading models from the BiGG database.
 - models.jl: Working with models from the BiGG database.
 - universal.jl: Contains functionality for working with the universal reactions and metabolites from the BiGG database.
@@ -54,5 +54,13 @@ All the functions are exposed in the global namespace.
 
 ## Documentation
 
-Documentation for the module is available [here](https://damourChris.github.io/BiGGQuery.jl).
+Documentation for the package is available [here](https://damourChris.github.io/BiGGQuery.jl).
 
+## License
+
+This package is licensed under the [MIT License](https://github.com/damourChris/BiGGQuery.jl/blob/main/LICENSE).
+
+
+---
+
+Zachary A. King, Justin Lu, Andreas Dräger, Philip Miller, Stephen Federowicz, Joshua A. Lerman, Ali Ebrahim, Bernhard O. Palsson, Nathan E. Lewis **BiGG Models: A platform for integrating, standardizing and sharing genome-scale model**s, *Nucleic Acids Research*, Volume 44, Issue D1, 4 January 2016, Pages D515–D522, DOI: https://doi.org/10.1093/nar/gkv1049
