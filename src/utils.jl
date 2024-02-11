@@ -60,7 +60,7 @@ end
 """
     get_bigg_database_version()
 
-Get the version of the BiGG database by making an API request to the BiGG website.
+Get the version of the current BiGG database.
 
 # Returns
 - `response`: Parsed JSON data containing the database version.

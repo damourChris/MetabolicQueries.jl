@@ -1,7 +1,8 @@
+
 """
     get_bigg_models()
 
-Get a list of models from the BiGG database.
+Get the list of models available in the BiGG database.
 
 # Example
 ```julia
@@ -23,7 +24,7 @@ end
 """
     get_bigg_model_details(model_id::AbstractString)
 
-Get details of a BiGG model by making an API request to the BiGG database.
+Get details of a BiGG model.
 
 # Arguments
 - `model_id::AbstractString`: The ID of the BiGG model.
@@ -51,7 +52,7 @@ end
 """
     get_bigg_model_reactions(model_id::AbstractString)
 
-Retrieve the reactions of a BiGG model specified by `model_id` using the BiGG API.
+Retrieve the reactions of a BiGG model specified by `model_id`.
 
 # Arguments
 - `model_id::AbstractString`: The ID of the BiGG model.
@@ -107,7 +108,7 @@ end
 """
     get_bigg_model_metabolites(model_id::AbstractString)
 
-Retrieve the metabolites of a BiGG model using the BiGG API.
+Retrieve the metabolites of a BiGG model.
 
 # Arguments
 - `model_id::AbstractString`: The ID of the BiGG model.
