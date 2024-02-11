@@ -20,14 +20,4 @@ makedocs(;
     format=Documenter.HTML(prettyurls=CI),
 )
 
-@info "Deploying Documentation"
-if CI
-    deploydocs(
-        repo="github.com/damourChris/BiGGQuery.jl.git",
-        target="build",
-        push_preview=true,
-        devbranch="main",
-    )
-end
-
 @info "Finished with Documentation"
