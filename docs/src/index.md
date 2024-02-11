@@ -1,8 +1,8 @@
-# BiGGQuery.jl
+
 
 A simple package to query the BiGG database, right here in Julia. 
 
-## Getting Started
+# Getting Started
 
 To use this package, add it to you environment via the REPL 
 ```julia
