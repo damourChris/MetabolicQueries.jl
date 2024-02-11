@@ -67,6 +67,7 @@ jobs:
       actions: write
       contents: write
       statuses: write
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
