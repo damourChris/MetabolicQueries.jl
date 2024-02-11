@@ -56,10 +56,3 @@ All the functions are exposed in the global namespace.
 
 Documentation for the module is available [here](https://damourChris.github.io/BiGGQuery.jl).
 
-## License
-
-The project is licensed under the terms specified in the LICENSE file.
-
-## Contributing
-
-Contributions to the project are welcome. Please make sure to read the CONTRIBUTING.md file for guidelines on how to contribute to this project.
