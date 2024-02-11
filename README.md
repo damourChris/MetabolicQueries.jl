@@ -1,7 +1,7 @@
 # BiGGQuery.jl
 This is a Julia package for interacting with the BiGG database. It includes functionality for querying, downloading, and working with models from the BiGG database.
 
-# Structure
+## Structure
 The project is structured as follows:
 
 - BiGGQuery.jl: The main module file. It includes other necessary files and sets up logging.
@@ -11,12 +11,18 @@ The project is structured as follows:
 - search.jl: Functionality for searching the BiGG database.
 - utils.jl: Utility functions used across the module.
 
-# Usage
-To use this package, add it to you environment via 
+## Installation
+To use this package, add it to you environment via the REPL 
 ```julia
 ]add BiGGQuery
 ```
-You can then use it as any other pakcage via 
+or
+```julia
+using Pkg
+Pkg.add("BiGGQuery")
+```
+
+You can then use it as any other package via 
 ```julia
 using BiGGQuery
 ```
@@ -24,14 +30,14 @@ using BiGGQuery
 All the functions are exposed in the global namespace.
 
 
-# Testing
+## Testing
 Tests for the module are located in the tests/ directory.
 
-# Documentation
-Documentation for the module is located in the docs/ directory.
+## Documentation
+Documentation for the module is available [here](https://damourChris.github.io/BiGGQuery.jl/dev/).
 
-# License
+## License
 The project is licensed under the terms specified in the LICENSE file.
 
-# Contributing
-Contributions to the project are welcome. Please make sure to read the CONTRIBUTING.md file (if available) for guidelines on how to contribute to this project. 
+## Contributing
+Contributions to the project are welcome. Please make sure to read the CONTRIBUTING.md file for guidelines on how to contribute to this project. 
