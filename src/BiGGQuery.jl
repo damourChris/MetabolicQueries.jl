@@ -14,12 +14,13 @@ export get_bigg_universal_metabolite_details, get_bigg_universal_metabolites,
         get_bigg_universal_reaction_details, get_bigg_universal_reactions
 
 include("models.jl")
-export get_bigg_model_details, get_bigg_model_genes, get_bigg_model_metabolite_details, 
-        get_bigg_model_metabolites, get_bigg_model_reaction_details, get_bigg_model_reactions, 
-        get_bigg_models, get_bigg_model_gene_details
+export get_bigg_model, get_bigg_models, get_bigg_model_details, 
+        get_bigg_model_genes, get_bigg_model_gene_details
+        get_bigg_model_metabolites, get_bigg_model_metabolite_details, 
+        get_bigg_model_reactions, get_bigg_model_reaction_details,
 
 include("downloads.jl")
-export download_bigg_model, download_bigg_model_file
+export download_bigg_model
 
 include("search.jl")
 export search_bigg_models

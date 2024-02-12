@@ -1,3 +1,29 @@
+"""
+    get_bigg_model(model_id::AbstractString)
+
+Return a BiGG model specified by its model ID.
+
+# Arguments
+- `model_id::AbstractString`: The ID of the BiGG model to download.
+
+# Returns
+- `response`: Returns the whole model as a Dict.
+
+# Example
+```julia
+get_bigg_model("iND750")
+```
+"""
+function get_bigg_model(model_id::AbstractString)
+    # Define the URL for the API request
+    url = "http://bigg.ucsd.edu/api/v2/models/$model_id/download"
+
+    # Perform the API request
+    response = api_request(:GET, url, Dict{String,String}(), Dict{String,String}())
+
+    # Return the parsed JSON data
+    return response
+end
 
 """
     get_bigg_models()
