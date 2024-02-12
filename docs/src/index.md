@@ -1,10 +1,12 @@
 ```@raw html
 <div align="center">
-<img width="80%" src="http://bigg.ucsd.edu/static/assets/bigg-github.png">
+<img width="80%" src="assets/bigg-julia.svg">
+<h1> BiGGQuery.jl</h1>
+<p> An interface to the BiGG database, directly in Julia.</p>
 </div>
 ```
 
-A simple package to query the BiGG database, right here in Julia. 
+
 
 ## Getting Started
 
