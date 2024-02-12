@@ -10,7 +10,7 @@ BiGG Models is a knowledgebase of genome-scale metabolic network reconstructions
 
 BiGG Models integrates more than 100 published genome-scale metabolic networks into a single database with a set of stardized identifiers called BiGG IDs. Genes in the BiGG models are mapped to NCBI genome annotations, and metabolites are linked to many external databases (KEGG, PubChem, and many more). 
 
-For details about updates to the BiGG Models website and database, see the updates page and the [GitHub repository](https://github.com/sbrg/bigg_models).
+For details about updates to the BiGG Models website and database, see the [updates page](http://bigg.ucsd.edu/updates) and the [GitHub repository](https://github.com/sbrg/bigg_models).
 
 BiGG is freely available for non-commercial use. It is hosted and maintained by the Systems Biology Research Group at the University of California, San Diego.
 
