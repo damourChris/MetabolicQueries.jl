@@ -1,4 +1,4 @@
-BiGGQuery.jl
+MetabolicQueries.jl
 
 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 Do not modify or delete this file.
@@ -21,4 +21,16 @@ In no event shall the University of California be liable to any party for direct
 
 The BiGG Models provided herein is on an "as is" basis, and the University of California has no obligation to provide maintenance, support, updates, enhancements, or modifications. The University of California makes no representations and extends no warranties of any kind, either implied or express, including, but not limited to, the implied warranties of merchantability or fitness for a particular purpose, or that the use of the BiGG Models will not infringe any patent, trademark or other rights.
 
-BiGG Models License Agreement and Copyright Notice END HERE
+## BiGG Models License Agreement and Copyright Notice END HERE
+
+2. MetabolicAtlas
+
+## MetabolicAtlas Models License Agreement BEGIN HERE
+
+This project is licensed under the terms of the GNU General Public License v3.0.
+
+The maps are licensed under CC BY-SA 4.0.
+
+We do not guarantee the accuracy of any provided data, generated database, software or online service nor the suitability of databases, software and online services for any purpose. The content presented on Metabolic Atlas is contributed by members of the community who remain owners of said content.
+
+## MetabolicAtlas Models License Agreement END HERE
