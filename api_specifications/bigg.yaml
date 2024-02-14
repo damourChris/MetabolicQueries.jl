@@ -1,0 +1,964 @@
+openapi: "3.0.0"
+info:
+  version: 2.0.0
+  title: BiGG API
+
+servers:
+  - url: http://bigg.ucsd.edu/api/v2
+    description: BiGG API
+paths:
+  /database_version:
+    get:
+      summary: Get the database version
+      operationId: getDatabaseVersion
+      responses:
+        "200":
+          description: The database version
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /models:
+    get:
+      summary: Get all models
+      operationId: getModels
+      responses:
+        "200":
+          description: A list of models
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelList"
+  /models/{model_id}:
+    get:
+      summary: Get a model details by ID
+      operationId: getModelDetails
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          description: The ID of the model
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Model details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelDetails"
+  /models/{model_id}/reactions:
+    get:
+      summary: Get all reactions for a model
+      operationId: getModelReactions
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          description: The ID of the model
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A list of reactions
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReactionList"
+  /models/{model_id}/reactions/{reaction_id}:
+    get:
+      summary: Get a reaction details by ID
+      operationId: getReactionDetails
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          description: The ID of the model
+          schema:
+            type: string
+        - name: reaction_id
+          in: path
+          required: true
+          description: The ID of the reaction
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Reaction details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReactionDetails"
+  /models/{model_id}/metabolites:
+    get:
+      summary: Get all metabolites for a model
+      operationId: getModelMetabolites
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          description: The ID of the model
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A list of metabolites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MetaboliteList"
+  /models/{model_id}/metabolites/{metabolite_id}:
+    get:
+      summary: Get a metabolite details by ID
+      operationId: getMetaboliteDetails
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          description: The ID of the model
+          schema:
+            type: string
+        - name: metabolite_id
+          in: path
+          required: true
+          description: The ID of the metabolite
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Metabolite details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MetaboliteDetails"
+  /models/{model_id}/genes:
+    get:
+      summary: Get all genes for a model
+      operationId: getModelGenes
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          description: The ID of the model
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A list of genes
+          content:
+            application/json:
+              schema:
+                type: object
+                # $ref: "#/components/schemas/GeneList"
+  /models/{model_id}/genes/{gene_id}:
+    get:
+      summary: Get a gene details by ID
+      operationId: getGeneDetails
+      parameters:
+        - name: model_id
+          in: path
+          required: true
+          description: The ID of the model
+          schema:
+            type: string
+        - name: gene_id
+          in: path
+          required: true
+          description: The ID of the gene
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Gene details
+          content:
+            application/json:
+              schema:
+                type: object
+                # $ref: "#/components/schemas/GeneDetails"
+
+  /universal/reactions:
+    get:
+      summary: Get all universal reactions
+      operationId: getUniversalReactions
+      responses:
+        "200":
+          description: A list of universal reactions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Universal"
+  /universal/reactions/{reaction_id}:
+    get:
+      summary: Get a universal reaction details by ID
+      operationId: getUniversalReactionDetails
+      parameters:
+        - name: reaction_id
+          in: path
+          required: true
+          description: The ID of the reaction
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Universal reaction details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UniversalReactionDetails"
+  /universal/metabolites:
+    get:
+      summary: Get all universal metabolites
+      operationId: getUniversalMetabolites
+      responses:
+        "200":
+          description: A list of universal metabolites
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Universal"
+  /universal/metabolites/{metabolite_id}:
+    get:
+      summary: Get a universal metabolite details by ID
+      operationId: getUniversalMetaboliteDetails
+      parameters:
+        - name: metabolite_id
+          in: path
+          required: true
+          description: The ID of the metabolite
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Universal metabolite details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UniversalMetaboliteDetails"
+
+  /search:
+    get:
+      summary: Search for models, reactions, metabolites, and genes
+      operationId: search
+      parameters:
+        - name: query
+          in: query
+          required: true
+          description: The search query
+          schema:
+            type: string
+        - name: search_type
+          in: query
+          required: true
+          description: The type of search
+          schema:
+            type: string
+            enum:
+              - models
+              - reactions
+              - metabolites
+              - genes
+      responses:
+        "200":
+          description: The search results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SearchResults"
+
+components:
+  schemas:
+    DatabaseVersion:
+      type: object
+      properties:
+        api_version:
+          type: string
+        last_updated:
+          type: string
+        bigg_models_version:
+          type: string
+      additionalProperties: false
+      required:
+        - api_version
+        - last_updated
+        - bigg_models_version
+
+    MetaData:
+      type: object
+      properties:
+        bigg_id:
+          type: string
+        name:
+          type: string
+      required:
+        - bigg_id
+        - name
+    DatabaseLinks:
+      type: array
+      items:
+        type: object
+        properties:
+          link:
+            type: string
+          id:
+            type: string
+        required:
+          - link
+          - id
+
+    ModelRef:
+      type: object
+      properties:
+        bigg_id:
+          type: string
+        organism:
+          type: string
+        gene_count:
+          type: integer
+        reaction_count:
+          type: integer
+        metabolite_count:
+          type: integer
+      required:
+        - bigg_id
+        - organism
+        - gene_count
+        - reaction_count
+        - metabolite_count
+    ModelList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/ModelRef"
+        results_count:
+          type: integer
+      additionalProperties: false
+      required:
+        - results
+        - results_count
+    ModelDetails:
+      type: object
+      properties:
+        metabolite_count:
+          type: integer
+        genome_name:
+          type: string
+        last_updated:
+          type: string
+        xml_gz_size:
+          type: string
+        organism:
+          type: string
+        mat_gz_size:
+          type: string
+        mat_size:
+          type: string
+        xml_size:
+          type: string
+        reaction_count:
+          type: integer
+        json_size:
+          type: string
+        genome_ref_string:
+          type: string
+        reference_type:
+          type: string
+        json_gz_size:
+          type: string
+        reference_id:
+          type: string
+        model_bigg_id:
+          type: string
+        gene_count:
+          type: integer
+        published_filename:
+          type: string
+        escher_maps:
+          type: array
+      additionalProperties: false
+      required:
+        - metabolite_count
+        - genome_name
+        - last_updated
+        - xml_gz_size
+        - organism
+        - mat_gz_size
+        - mat_size
+        - xml_size
+        - reaction_count
+        - json_size
+        - genome_ref_string
+        - reference_type
+        - json_gz_size
+        - reference_id
+        - model_bigg_id
+        - gene_count
+        - published_filename
+        - escher_maps
+
+    Reaction:
+      allOf:
+        - $ref: "#/components/schemas/MetaData"
+          type: object
+          properties:
+            organism:
+              type: string
+            model_bigg_id:
+              type: string
+          required:
+            - $ref: "#/components/schemas/MetaData/required"
+            - model_bigg_id
+    ReactionList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/Reaction"
+        results_count:
+          type: integer
+      additionalProperties: false
+      required:
+        - results
+        - results_count
+    ReactionDetails:
+      type: object
+      properties:
+        escher_maps:
+          type: array
+        old_identifiers:
+          type: array
+          items:
+            type: string
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              exported_reaction_id:
+                type: string
+              copy_number:
+                type: integer
+              gene_reaction_rule:
+                type: string
+              upper_bound:
+                type: integer
+              genes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    bigg_id:
+                      type: string
+                    name:
+                      type: string
+                  required:
+                    - bigg_id
+                    - name
+              lower_bound:
+                type: integer
+              objective_coefficient:
+                type: integer
+              subsystem:
+                type: string
+              reaction_string:
+                type: string
+        model_bigg_id:
+          type: string
+        database_links:
+          type: object
+          properties:
+            RHEA:
+              type: array
+              items:
+                type: object
+                properties:
+                  link:
+                    type: string
+                  id:
+                    type: string
+                required:
+                  - link
+                  - id
+            KEGG Reaction:
+              type: array
+              items:
+                type: object
+                properties:
+                  link:
+                    type: string
+                  id:
+                    type: string
+            BioCyc:
+              type: array
+              items:
+                type: object
+                properties:
+                  link:
+                    type: string
+                  id:
+                    type: string
+            Reactome Reaction:
+              type: array
+              items:
+                type: object
+                properties:
+                  link:
+                    type: string
+                  id:
+                    type: string
+                required:
+                  - link
+                  - id
+            EC Number:
+              type: array
+              items:
+                type: object
+                properties:
+                  link:
+                    type: string
+                  id:
+                    type: string
+                required:
+                  - link
+                  - id
+            SEED Reaction:
+              type: array
+              items:
+                type: object
+                properties:
+                  link:
+                    type: string
+                  id:
+                    type: string
+            MetaNetX (MNX) Equation:
+              type: array
+              items:
+                type: object
+                properties:
+                  link:
+                    type: string
+                  id:
+                    type: string
+          required:
+            - RHEA
+            - KEGG Reaction
+            - BioCyc
+            - Reactome Reaction
+            - EC Number
+            - SEED Reaction
+            - MetaNetX (MNX) Equation
+          additionalProperties: false
+        bigg_id:
+          type: string
+        other_models_with_reaction:
+          type: array
+          items:
+            type: object
+            properties:
+              bigg_id:
+                type: string
+            required:
+              - bigg_id
+        metabolites:
+          type: array
+          items:
+            type: object
+            properties:
+              bigg_id:
+                type: string
+              name:
+                type: string
+              compartment_bigg_id:
+                type: string
+              stoichiometry:
+                type: integer
+            required:
+              - bigg_id
+              - name
+              - compartment_bigg_id
+              - stoichiometry
+        count:
+          type: integer
+        pseudoreaction:
+          type: boolean
+        name:
+          type: string
+      additionalProperties: false
+      required:
+        - escher_maps
+        - old_identifiers
+        - results
+        - model_bigg_id
+        - database_links
+        - bigg_id
+        - other_models_with_reaction
+        - metabolites
+        - count
+        - pseudoreaction
+        - name
+
+    Metabolite:
+      allOf:
+        - $ref: "#/components/schemas/MetaData"
+          type: object
+          properties:
+            compartment_bigg_id:
+              type: string
+            model_bigg_id:
+              type: string
+            organism:
+              type: string
+          required:
+            - $ref: "#/components/schemas/MetaData/required"
+            - compartment_bigg_id
+            - model_bigg_id
+    MetaboliteDetails:
+      allOf:
+        - $ref: "#/components/schemas/Metabolite"
+          type: object
+          properties:
+            compartment_name:
+              type: string
+            formula:
+              type: string
+            reactions:
+              type: array
+              items:
+                $ref: "#/components/schemas/Reaction"
+
+            other_models_with_metabolite:
+              type: array
+              items:
+                $ref: "#/components/schemas/Metabolite"
+            charge:
+              type: integer
+            database_links:
+              type: object
+              properties:
+                InChI Key:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                Reactome Compound:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                SEED Compound:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                CHEBI:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                Human Metabolome Database:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                MetaNetX (MNX) Chemical:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                KEGG Compound:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                BioCyc:
+                  $ref: "#/components/schemas/DatabaseLinks"
+              required:
+                - InChI Key
+                - Reactome Compound
+                - SEED Compound
+                - CHEBI
+                - Human Metabolome Database
+                - MetaNetX (MNX) Chemical
+                - KEGG Compound
+                - BioCyc
+              additionalProperties: false
+            old_identifiers:
+              type: array
+              items:
+                type: string
+            escher_maps:
+              type: array
+              items: {}
+          additionalProperties: false
+          required:
+            - $ref: "#/components/schemas/MetaData/required"
+            - formula
+            - reactions
+            - compartment_name
+            - other_models_with_metabolite
+            - charge
+            - database_links
+            - old_identifiers
+            - escher_maps
+    MetaboliteList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/Metabolite"
+        results_count:
+          type: integer
+      additionalProperties: false
+      required:
+        - results
+        - results_count
+
+    Gene:
+      allOf:
+        - $ref: "#/components/schemas/MetaData"
+          type: object
+          properties:
+            organism:
+              type: string
+            model_bigg_id:
+              type: string
+          required:
+            - $ref: "#/components/schemas/MetaData/required"
+            - organism
+            - model_bigg_id
+    GeneList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/Gene"
+        results_count:
+          type: integer
+      additionalProperties: false
+      required:
+        - results
+        - results_count
+    GeneDetails:
+      allOf:
+        - $ref: "#/components/schemas/Gene"
+          type: object
+          properties:
+            rightpos:
+              type: integer
+            genome_name:
+              type: string
+            chromosome_ncbi_accession:
+              type: string
+            leftpos:
+              type: integer
+            bigg_id:
+              type: string
+            strand:
+              type: string
+            protein_sequence:
+              type: string
+            reactions:
+              type: array
+              items:
+                $ref: "#/components/schemas/Reaction"
+            genome_ref_string:
+              type: string
+            dna_sequence:
+              type: string
+            database_links:
+              type: object
+              properties:
+                NCBI Entrez Gene:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                Saccharomyces Genome Database:
+                  $ref: "#/components/schemas/DatabaseLinks"
+              required:
+                - NCBI Entrez Gene
+                - Saccharomyces Genome Database
+              additionalProperties: false
+            model_bigg_id:
+              type: string
+            old_identifiers:
+              type: array
+              items:
+                type: string
+            name:
+              type: string
+            mapped_to_genbank:
+              type: boolean
+          additionalProperties: false
+          required:
+            - $ref: "#/components/schemas/Gene/required"
+            - rightpos
+            - genome_name
+            - chromosome_ncbi_accession
+            - leftpos
+            - strand
+            - protein_sequence
+            - reactions
+            - genome_ref_string
+            - dna_sequence
+            - database_links
+            - old_identifiers
+            - mapped_to_genbank
+
+    Universal:
+      allOf:
+        - $ref: "#/components/schemas/MetaData"
+          type: object
+          properties:
+            model_bigg_id:
+              type: string
+          required:
+            - $ref: "#/components/schemas/MetaData/required"
+            - model_bigg_id
+    UniversalReactionDetails:
+      allOf:
+        - $ref: "#/components/schemas/Universal"
+          type: object
+          properties:
+            models_containing_reaction:
+              type: array
+              items:
+                type: object
+                properties:
+                  bigg_id:
+                    type: string
+                  organism:
+                    type: string
+                required:
+                  - bigg_id
+                  - organism
+            reaction_string:
+              type: string
+            metabolites:
+              type: array
+              items:
+                type: object
+                properties:
+                  bigg_id:
+                    type: string
+                  name:
+                    type: string
+                  compartment_bigg_id:
+                    type: string
+                  stoichiometry:
+                    type: integer
+                required:
+                  - bigg_id
+                  - name
+                  - compartment_bigg_id
+                  - stoichiometry
+            database_links:
+              type: object
+              properties:
+                RHEA:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                KEGG Reaction:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                BioCyc:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                Reactome Reaction:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                EC Number:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                SEED Reaction:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                MetaNetX (MNX) Equation:
+                  $ref: "#/components/schemas/DatabaseLinks"
+              required:
+                - RHEA
+                - KEGG Reaction
+                - BioCyc
+                - Reactome Reaction
+                - EC Number
+                - SEED Reaction
+                - MetaNetX (MNX) Equation
+              additionalProperties: false
+            bigg_id:
+              type: string
+            old_identifiers:
+              type: array
+              items:
+                type: string
+            name:
+              type: string
+            pseudoreaction:
+              type: boolean
+          additionalProperties: false
+          required:
+            - $ref: "#/components/schemas/Universal/required"
+            - models_containing_reaction
+            - reaction_string
+            - metabolites
+            - database_links
+            - old_identifiers
+            - pseudoreaction
+    UniversalMetaboliteDetails:
+      allOf: 
+        - $ref: "#/components/schemas/Universal"
+          type: object
+          properties:
+            database_links:
+              type: object
+              properties:
+                InChI Key:  
+                  $ref: "#/components/schemas/DatabaseLinks"
+                Reactome Compound:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                SEED Compound:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                CHEBI:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                Human Metabolome Database:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                MetaNetX (MNX) Chemical:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                KEGG Compound:
+                  $ref: "#/components/schemas/DatabaseLinks"
+                BioCyc:
+                  $ref: "#/components/schemas/DatabaseLinks"
+              required:
+                - InChI Key
+                - Reactome Compound
+                - SEED Compound
+                - CHEBI
+                - Human Metabolome Database
+                - MetaNetX (MNX) Chemical
+                - KEGG Compound
+                - BioCyc
+              additionalProperties: false
+            formulae:
+              type: array
+              items:
+                type: string
+            old_identifiers:
+              type: array
+              items:
+                type: string
+            charges:
+              type: array
+              items:
+                type: integer
+            compartments_in_models:
+              type: array
+              items:
+                type: object
+                properties:
+                  bigg_id:
+                    type: string
+                  organism:
+                    type: string
+                  model_bigg_id:
+                    type: string
+                required:
+                  - bigg_id
+                  - organism
+                  - model_bigg_id
+          additionalProperties: false
+          required:
+            - database_links
+            - formulae
+            - old_identifiers
+            - charges
+            - compartments_in_models
+
+    SearchResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+        results_count:
+          type: integer
+      additionalProperties: false
+      required:
+        - results
+        - results_count
