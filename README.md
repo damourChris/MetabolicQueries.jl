@@ -1,66 +1,144 @@
-# BiGGQuery.jl
-
-<div align="center" style="display: flex; flex-direction: column; gap: 0.25rem">
+<div align="center">
+    <h1> MetabolicQueries.jl </h1>    
     <div>
-        <a href="https://damourchris.github.io/BiGGQuery.jl/">
-            <img alt="Docs" src="https://img.shields.io/badge/docs-stable-green">
+        <a href="https://www.repostatus.org/#active">
+            <img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP - This project is a work in progress." />
         </a>
-        <a href="https://github.com/damourChris/BiGGQuery.jl/blob/main/LICENSE">
-            <img alt="Github License" src="https://img.shields.io/github/license/damourChris/BiGGQuery.jl">
+        <a href="https://damourchris.github.io/MetabolicQueries.jl/">
+            <img alt="Docs-stable" src="https://img.shields.io/badge/docs-stable-green"/>
         </a>
-        <a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status: Active – The project has reached a stable, usable state and is being actively developed." /></a>
+        <a href="https://damourchris.github.io/MetabolicQueries.jl/dev/">
+            <img alt="Docs-dev" src="https://img.shields.io/badge/docs-dev-green"/>
+        </a>
+        <a href="https://github.com/damourChris/MetabolicQueries/blob/main/LICENSE">
+            <img alt="Github License" src="https://img.shields.io/github/license/damourChris/MetabolicQueries.jl"/>
+        </a>
     </div>
+    <div>
+    Satisfy you metabolic data and models needs in Julia. 
+    </div>
+
 </div>
-
-This is a Julia package for interacting with the [BiGG database](http://bigg.ucsd.edu/). It includes functionality for querying, downloading, and working with models from the [BiGG database](http://bigg.ucsd.edu/)..
-
-## Data Availability 
-
-You can access the database directly on the website: [BiGG database](http://bigg.ucsd.edu/).
-
-
-## Project Structure
-
-The project is structured as follows:
-
-- downloads.jl: Downloading models from the BiGG database.
-- models.jl: Working with models from the BiGG database.
-- universal.jl: Contains functionality for working with the universal reactions and metabolites from the BiGG database.
-- search.jl: Functionality for searching the BiGG database.
-- utils.jl: Utility functions used across the module.
-
-## Installation
-
-To use this package, add it to you environment via the REPL
-
-```julia
-]add BiGGQuery
-```
-
-or
-
-```julia
-using Pkg
-Pkg.add("BiGGQuery")
-```
-
-You can then use it as any other package via
-
-```julia
-using BiGGQuery
-```
-
-All the functions are exposed in the global namespace.
-
-## Documentation
-
-Documentation for the package is available [here](https://damourChris.github.io/BiGGQuery.jl).
-
-## License
-
-This package is licensed under the [MIT License](https://github.com/damourChris/BiGGQuery.jl/blob/main/LICENSE).
-
 
 ---
 
-Zachary A. King, Justin Lu, Andreas Dräger, Philip Miller, Stephen Federowicz, Joshua A. Lerman, Ali Ebrahim, Bernhard O. Palsson, Nathan E. Lewis **BiGG Models: A platform for integrating, standardizing and sharing genome-scale model**s, *Nucleic Acids Research*, Volume 44, Issue D1, 4 January 2016, Pages D515–D522, DOI: https://doi.org/10.1093/nar/gkv1049
+<h2> Features </h2>
+
+- Querying, downloading, and working with data and models from databases such as [BiGG](http://bigg.ucsd.edu/), [KEGG](https://www.kegg.jp/) or the [MetabolicAtlas](https://metabolicatlas.org/).
+- Integrated with metabolic packages in the julia ecosystem such as [COBREXA.jl](https://github.com/LCSB-BioCore/COBREXA.jl), [SBMLToolkit.jl](https://docs.sciml.ai/SBMLToolkit/stable/),[SMBL.jl](https://github.com/LCSB-BioCore/SBML.jl),[Catalyst.jl](https://docs.sciml.ai//stable/) and [ReactionNetworkImporters.jl](https://docs.sciml.ai/ReactionNetworkImporters/stable/)
+
+---
+
+- [Installation](#installation)
+- [Databases](#databases)
+  - [BiGG](#bigg)
+  - [KEGG](#kegg)
+  - [MetabolicAtlas](#metabolicatlas)
+- [Documentation](#documentation)
+- [Contribution](#contribution)
+- [Acknowledgement](#acknowledgement)
+- [License](#license)
+
+## Installation
+
+To use this package, add it to you environment:
+
+```julia
+using Pkg
+Pkg.add("https://github.com/damourChris/MetabolicQueries.jl")
+using MetabolicQueries
+```
+
+or via the REPL
+
+```julia
+(@v1.8) pkg> add https://github.com/damourChris/MetabolicQueries.jl
+julia> using MetabolicQueries
+```
+
+## Databases
+
+### BiGG
+
+<div>
+
+<div>
+<a href="http://bigg.ucsd.edu/">
+    <img  alt="BiGG-website" src="https://img.shields.io/badge/website-bigg.ucsd.edu-blue"/>
+</a>
+<a href="http://dx.doi.org/10.1093/nar/gkv1049">
+    <img alt="BiGG-DOI" src="https://img.shields.io/badge/DOI-10.1093/nar/gkv1049-gree"/>
+</a>
+</div>
+
+BiGG Models is a knowledgebase of genome-scale metabolic network reconstructions. BiGG Models integrates more than 70 published genome-scale metabolic networks into a single database with a set of stardized identifiers called BiGG IDs. Genes in the BiGG models are mapped to NCBI genome annotations, and metabolites are linked to many external databases (KEGG, PubChem, and many more).
+
+For details about updates to the BiGG Models website and database, see the [updates page](http://bigg.ucsd.edu/updates) and the [GitHub repository](https://github.com/SBRG/bigg_models/releases).
+
+</div>
+
+### KEGG
+
+<div >
+<a href="https://www.kegg.jp">
+    <img alt="KEGG-website" src="https://img.shields.io/badge/website-kegg.jp-blue"/>
+</a>
+<a href="https://doi.org/10.1002/0470857897.ch8">
+    <img alt="KEGG-DOI" src="https://img.shields.io/badge/DOI-10.1002/0470857897.ch8-gree"/>
+</a>
+
+</div>
+
+<div> 
+<div>
+KEGG is a database resource for understanding high-level functions and utilities of the biological system, such as the cell, the organism and the ecosystem, from molecular-level information, especially large-scale molecular datasets generated by genome sequencing and other high-throughput experimental technologies.
+
+</div>
+</div>
+
+### MetabolicAtlas
+
+<div >
+<a href="https://www.metabolicatlas.org">
+    <img alt="metabolic_atlas-website" src="https://img.shields.io/badge/website-metabolicatlas.org-blue"/>
+</a>
+<a href="https://doi.org/10.1093/nar/gkac831">
+    <img alt="metabolic_atlas-DOI" src="https://img.shields.io/badge/DOI-10.1093/nar/gkac831-gree"/>
+</a>
+
+</div>
+Metabolic Atlas is a web platform integrating open-source genome scale metabolic models (GEMs) for easy browsing and analysis. Their goal is to collect curated GEMs, and to bring these models closer to FAIR principles. The website provides visualisations and comparisons of the GEMs, and links to resources, algorithms, other databases, and more general software applications. Their vision is to create a one-stop-shop for everything metabolism related.
+
+---
+
+## Documentation
+
+<a href="https://damourchris.github.io/MetabolicQueries.jl/">
+    <img alt="Docs" src="https://img.shields.io/badge/docs-stable-green"/>
+</a>
+<a href="https://damourchris.github.io/MetabolicQueries.jl/dev/">
+    <img alt="Docs" src="https://img.shields.io/badge/docs-dev-green"/>
+</a>
+        
+Documentation for the package is available [here](https://damourChris.github.io/MetabolicQueries.jl).
+
+## Contribution
+
+If you want to help developing and maintaining this package, here a rough guideline: 
+
+- Open up an issue:
+  - if you encounter a bug while using this package
+  - if you find a mismatch between the version of the database listed [here]() and the one on the official page. 
+
+- Pull request: 
+  - Adding a new feature set
+  - Adding support for a new database
+  - Documentation improvements  
+
+## Acknowledgement 
+
+This package would not be possible without the support from the databases. If you end up using this package in your research, please make sure to properly cite all the resources that you have used!
+
+## License
+
+This package is licensed under the [MIT License](https://github.com/damourChris/MetabolicQueries.jl/blob/main/LICENSE).
