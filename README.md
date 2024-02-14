@@ -83,8 +83,7 @@ KEGG is a database resource for understanding high-level functions and utilities
 ### MetabolicAtlas
 
 <div >
-<a href="https://www.metabolicatlas.org"><img alt="metabolic_atlas-website" src="https://img.shields.io/badge/website-metabolicatlas.org-blue"/>
-</a>
+<a href="https://www.metabolicatlas.org"><img alt="metabolic_atlas-website" src="https://img.shields.io/badge/website-metabolicatlas.org-blue"/></a>
 <a href="https://doi.org/10.1093/nar/gkac831"><img alt="metabolic_atlas-DOI" src="https://img.shields.io/badge/DOI-10.1093/nar/gkac831-gree"/>
 </a>
 
