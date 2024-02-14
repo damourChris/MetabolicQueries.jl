@@ -1,18 +1,10 @@
 <div align="center">
     <h1> MetabolicQueries.jl </h1>    
     <div>
-        <a href="https://www.repostatus.org/#active">
-            <img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP - This project is a work in progress." />
-        </a>
-        <a href="https://damourchris.github.io/MetabolicQueries.jl/">
-            <img alt="Docs-stable" src="https://img.shields.io/badge/docs-stable-green"/>
-        </a>
-        <a href="https://damourchris.github.io/MetabolicQueries.jl/dev/">
-            <img alt="Docs-dev" src="https://img.shields.io/badge/docs-dev-green"/>
-        </a>
-        <a href="https://github.com/damourChris/MetabolicQueries/blob/main/LICENSE">
-            <img alt="Github License" src="https://img.shields.io/github/license/damourChris/MetabolicQueries.jl"/>
-        </a>
+        <a href="https://www.repostatus.org/#active"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status: WIP - This project is a work in progress."/></a>
+        <a href="https://damourchris.github.io/MetabolicQueries.jl/"><img alt="Docs-stable" src="https://img.shields.io/badge/docs-stable-green"/></a>
+        <a href="https://damourchris.github.io/MetabolicQueries.jl/dev/"><img alt="Docs-dev" src="https://img.shields.io/badge/docs-dev-green"/></a>
+        <a href="https://github.com/damourChris/MetabolicQueries/blob/main/LICENSE"><img alt="Github License" src="https://img.shields.io/github/license/damourChris/MetabolicQueries.jl"/></a>
     </div>
     <div>
     Satisfy you metabolic data and models needs in Julia. 
@@ -63,12 +55,8 @@ julia> using MetabolicQueries
 <div>
 
 <div>
-<a href="http://bigg.ucsd.edu/">
-    <img  alt="BiGG-website" src="https://img.shields.io/badge/website-bigg.ucsd.edu-blue"/>
-</a>
-<a href="http://dx.doi.org/10.1093/nar/gkv1049">
-    <img alt="BiGG-DOI" src="https://img.shields.io/badge/DOI-10.1093/nar/gkv1049-gree"/>
-</a>
+<a href="http://bigg.ucsd.edu/"><img  alt="BiGG-website" src="https://img.shields.io/badge/website-bigg.ucsd.edu-blue"/></a>
+<a href="http://dx.doi.org/10.1093/nar/gkv1049"><img alt="BiGG-DOI" src="https://img.shields.io/badge/DOI-10.1093/nar/gkv1049-gree"/></a>
 </div>
 
 BiGG Models is a knowledgebase of genome-scale metabolic network reconstructions. BiGG Models integrates more than 70 published genome-scale metabolic networks into a single database with a set of stardized identifiers called BiGG IDs. Genes in the BiGG models are mapped to NCBI genome annotations, and metabolites are linked to many external databases (KEGG, PubChem, and many more).
@@ -80,12 +68,8 @@ For details about updates to the BiGG Models website and database, see the [upd
 ### KEGG
 
 <div >
-<a href="https://www.kegg.jp">
-    <img alt="KEGG-website" src="https://img.shields.io/badge/website-kegg.jp-blue"/>
-</a>
-<a href="https://doi.org/10.1002/0470857897.ch8">
-    <img alt="KEGG-DOI" src="https://img.shields.io/badge/DOI-10.1002/0470857897.ch8-gree"/>
-</a>
+<a href="https://www.kegg.jp"><img alt="KEGG-website" src="https://img.shields.io/badge/website-kegg.jp-blue"/></a>
+<a href="https://doi.org/10.1002/0470857897.ch8"><img alt="KEGG-DOI" src="https://img.shields.io/badge/DOI-10.1002/0470857897.ch8-gree"/></a>
 
 </div>
 
@@ -99,11 +83,9 @@ KEGG is a database resource for understanding high-level functions and utilities
 ### MetabolicAtlas
 
 <div >
-<a href="https://www.metabolicatlas.org">
-    <img alt="metabolic_atlas-website" src="https://img.shields.io/badge/website-metabolicatlas.org-blue"/>
+<a href="https://www.metabolicatlas.org"><img alt="metabolic_atlas-website" src="https://img.shields.io/badge/website-metabolicatlas.org-blue"/>
 </a>
-<a href="https://doi.org/10.1093/nar/gkac831">
-    <img alt="metabolic_atlas-DOI" src="https://img.shields.io/badge/DOI-10.1093/nar/gkac831-gree"/>
+<a href="https://doi.org/10.1093/nar/gkac831"><img alt="metabolic_atlas-DOI" src="https://img.shields.io/badge/DOI-10.1093/nar/gkac831-gree"/>
 </a>
 
 </div>
@@ -113,12 +95,8 @@ Metabolic Atlas is a web platform integrating open-source genome scale metabolic
 
 ## Documentation
 
-<a href="https://damourchris.github.io/MetabolicQueries.jl/">
-    <img alt="Docs" src="https://img.shields.io/badge/docs-stable-green"/>
-</a>
-<a href="https://damourchris.github.io/MetabolicQueries.jl/dev/">
-    <img alt="Docs" src="https://img.shields.io/badge/docs-dev-green"/>
-</a>
+<a href="https://damourchris.github.io/MetabolicQueries.jl/"><img alt="Docs" src="https://img.shields.io/badge/docs-stable-green"/></a>
+<a href="https://damourchris.github.io/MetabolicQueries.jl/dev/"><img alt="Docs" src="https://img.shields.io/badge/docs-dev-green"/></a>
         
 Documentation for the package is available [here](https://damourChris.github.io/MetabolicQueries.jl).
 
