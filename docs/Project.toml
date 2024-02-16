@@ -1,6 +1,6 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-BiGGQuery = "f0427d59-bd99-4e1a-9805-3e4857bdd396"
+MetabolicQueries = "f0427d59-bd99-4e1a-9805-3e4857bdd396"
 
 [compat]
 Documenter = "1"
