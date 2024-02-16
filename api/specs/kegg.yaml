@@ -1,0 +1,95 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: KEGG API
+  description: KEGG API is a RESTful web service for accessing KEGG database resources.
+
+servers:
+  - url: http://rest.kegg.jp
+
+paths:
+  /info/{db}:
+    get:
+      summary: Get information about a given database
+      description: |
+        This operation returns information about a given database.
+      parameters:
+        - name: db
+          in: path
+          description: The database to get information from
+          required: true
+          schema:
+            type: string
+            enum:
+              - pathway
+              - brite
+              - module
+              - ko
+              - org
+              - vg
+              - vp
+              - ag
+              - genome
+              - compound
+              - glycan
+              - reaction
+              - rclass
+              - enzyme
+              - network
+              - variant
+              - disease
+              - drug
+              - dgroup
+              - organism
+
+      responses:
+        "200":
+          description: Information about the given database
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /list/{db}:
+    get:
+      summary: Obtain a list of entry identifiers and associated names
+      description: |
+        This operation returns a list of all entries and associated names in a given database.
+      parameters:
+        - name: db
+          in: path
+          description: The database to list
+          required: true
+          schema:
+            type: string
+            enum:
+              - pathway
+              - brite
+              - module
+              - ko
+              - org
+              - vg
+              - vp
+              - ag
+              - genome
+              - compound
+              - glycan
+              - reaction
+              - rclass
+              - enzyme
+              - network
+              - variant
+              - disease
+              - drug
+              - dgroup
+              - organism
+
+      responses:
+        "200":
+          description: A list of all entries in the given database
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
