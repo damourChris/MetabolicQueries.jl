@@ -1,0 +1,6 @@
+description: The number of requests remaining in the current time period
+schema:
+  type: integer
+  format: int32
+  maximum: 15
+  minimum: 0

@@ -1,0 +1,6 @@
+description: The maximum number of requests allowed in a given time period
+schema:
+  type: integer
+  format: int32
+  maximum: 15
+  minimum: 0

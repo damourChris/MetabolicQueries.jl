@@ -1,0 +1,8 @@
+Retry-After:
+  $ref: "./Retry-After.yaml"
+X-RateLimit-Limit:
+  $ref: "./X-RateLimit-Limit.yaml"
+X-RateLimit-Remaining:
+  $ref: "./X-RateLimit-Remaining.yaml"
+X-RateLimit-Reset:
+  $ref: "./X-RateLimit-Reset.yaml"
