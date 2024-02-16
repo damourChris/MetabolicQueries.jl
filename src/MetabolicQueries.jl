@@ -1,11 +1,16 @@
 module MetabolicQueries
 
 # Import submodules
+include("./metabolicatlas/MetabolicAtlas.jl")
 using .MetabolicAtlas
+
+include("./bigg/BiGG.jl")
 using .BiGG
+
+include("./kegg/KEGG.jl")
 using .KEGG
 
-function __init__():
+function __init__()
     
     # Setup the caching
     # setup_caching()
