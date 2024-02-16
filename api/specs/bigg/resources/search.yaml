@@ -1,0 +1,36 @@
+parameters:
+  - $ref: "../parameters/query.yaml"
+  - $ref: "../parameters/search-type.yaml"
+get:
+  summary: Search for models, reactions, metabolites, and genes
+  description: Search for models, reactions, metabolites, and genes by name or identifier.
+  tags: [Search]
+  operationId: search
+  responses:
+    "200":
+      description: The search results
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/search/SearchResults.yaml"
+      headers:
+        X-RateLimit-Limit:
+          $ref: "../headers/X-RateLimit-Limit.yaml"
+        X-RateLimit-Remaining:
+          $ref: "../headers/X-RateLimit-Remaining.yaml"
+        X-RateLimit-Reset:
+          $ref: "../headers/X-RateLimit-Reset.yaml"
+    "400":
+      $ref: "../responses/4xx/BadRequest.yaml"
+    "404":
+      $ref: "../responses/4xx/NotFound.yaml"
+    "408":
+      $ref: "../responses/4xx/RequestTimeout.yaml"
+    "429":
+      $ref: "../responses/4xx/TooManyRequests.yaml"
+    "500":
+      $ref: "../responses/5xx/InternalServer.yaml"
+    "503":
+      $ref: "../responses/5xx/ServiceUnavailable.yaml"
+  security:
+    - api_key: []

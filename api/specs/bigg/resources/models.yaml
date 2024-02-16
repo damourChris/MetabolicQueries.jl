@@ -1,0 +1,36 @@
+get:
+  summary: Get all models
+  description: Get all models
+  tags: [Models]
+  operationId: getModels
+  responses:
+    "200":
+      description: A list of models
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/model/model.yaml"
+            maxItems: 150
+      headers:
+        X-RateLimit-Limit:
+          $ref: "../headers/X-RateLimit-Limit.yaml"
+        X-RateLimit-Remaining:
+          $ref: "../headers/X-RateLimit-Remaining.yaml"
+        X-RateLimit-Reset:
+          $ref: "../headers/X-RateLimit-Reset.yaml"
+    "400":
+      $ref: "../responses/4xx/BadRequest.yaml"
+    "404":
+      $ref: "../responses/4xx/NotFound.yaml"
+    "408":
+      $ref: "../responses/4xx/RequestTimeout.yaml"
+    "429":
+      $ref: "../responses/4xx/TooManyRequests.yaml"
+    "500":
+      $ref: "../responses/5xx/InternalServer.yaml"
+    "503":
+      $ref: "../responses/5xx/ServiceUnavailable.yaml"
+  security:
+    - api_key: []

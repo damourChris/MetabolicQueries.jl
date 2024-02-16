@@ -1,0 +1,38 @@
+parameters:
+  - $ref: "../parameters/model-id.yaml"
+get:
+  summary: Get all metabolites for a model
+  description: Get all metabolites for a model
+  tags: [Metabolites]
+  operationId: getModelMetabolites
+  responses:
+    "200":
+      description: A list of metabolites
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/metabolite/metabolite.yaml"
+            maxItems: 150
+      headers:
+        X-RateLimit-Limit:
+          $ref: "../headers/X-RateLimit-Limit.yaml"
+        X-RateLimit-Remaining:
+          $ref: "../headers/X-RateLimit-Remaining.yaml"
+        X-RateLimit-Reset:
+          $ref: "../headers/X-RateLimit-Reset.yaml"
+    "400":
+      $ref: "../responses/4xx/BadRequest.yaml"   
+    "404":
+      $ref: "../responses/4xx/NotFound.yaml"
+    "408":
+      $ref: "../responses/4xx/RequestTimeout.yaml"
+    "429":
+      $ref: "../responses/4xx/TooManyRequests.yaml"
+    "500":
+      $ref: "../responses/5xx/InternalServer.yaml"
+    "503":
+      $ref: "../responses/5xx/ServiceUnavailable.yaml"
+  security:
+    - api_key: []

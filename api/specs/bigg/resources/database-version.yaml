@@ -1,0 +1,31 @@
+get:
+  summary: Get the database version
+  description: Get the database version
+  tags: [Misc]
+  operationId: getDatabaseVersion
+  responses:
+    "200":
+      description: The database version
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/misc/DatabaseVersion.yaml"
+      headers:
+        X-RateLimit-Limit:
+          $ref: "../headers/X-RateLimit-Limit.yaml"
+        X-RateLimit-Remaining:
+          $ref: "../headers/X-RateLimit-Remaining.yaml"
+        X-RateLimit-Reset:
+          $ref: "../headers/X-RateLimit-Reset.yaml"
+    "400":
+      $ref: "../responses/4xx/BadRequest.yaml"
+    "408":
+      $ref: "../responses/4xx/RequestTimeout.yaml"
+    "429":
+      $ref: "../responses/4xx/TooManyRequests.yaml"
+    "500":
+      $ref: "../responses/5xx/InternalServer.yaml"
+    "503":
+      $ref: "../responses/5xx/ServiceUnavailable.yaml"
+  security:
+    - api_key: []
