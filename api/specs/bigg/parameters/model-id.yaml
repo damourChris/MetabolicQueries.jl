@@ -1,0 +1,9 @@
+name: model_id
+in: path
+required: true
+description: The ID of the model
+schema:
+  type: string
+  format: const
+  maxItems: 1
+  maxLength: 100

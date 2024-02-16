@@ -1,0 +1,9 @@
+name: gene_id
+in: path
+required: true
+description: The ID of the gene
+schema:
+  type: string
+  format: const
+  maxItems: 1
+  maxLength: 100
