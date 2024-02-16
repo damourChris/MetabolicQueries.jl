@@ -1,0 +1,14 @@
+description: Too Many Requests
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/errors/ValidationError.yaml"
+headers:
+  Retry-After:
+    $ref: "../../headers/Retry-After.yaml"
+  X-RateLimit-Limit:
+    $ref: "../../headers/X-RateLimit-Limit.yaml"
+  X-RateLimit-Remaining:
+    $ref: "../../headers/X-RateLimit-Remaining.yaml"
+  X-RateLimit-Reset:
+    $ref: "../../headers/X-RateLimit-Reset.yaml"

@@ -1,0 +1,20 @@
+description: Accepted
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          format: const
+          maxLength: 100
+          maxItems: 1
+      required:
+        - message
+headers:
+  X-RateLimit-Limit:
+    $ref: "../../headers/X-RateLimit-Limit.yaml"
+  X-RateLimit-Remaining:
+    $ref: "../../headers/X-RateLimit-Remaining.yaml"
+  X-RateLimit-Reset:
+    $ref: "../../headers/X-RateLimit-Reset.yaml"

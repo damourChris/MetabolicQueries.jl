@@ -1,0 +1,12 @@
+description: Forbidden
+content:
+  application/json:
+    schema:
+      $ref: "../../schemas/errors/ErrorResponse.yaml"
+headers:
+  X-RateLimit-Limit:
+    $ref: "../../headers/X-RateLimit-Limit.yaml"
+  X-RateLimit-Remaining:
+    $ref: "../../headers/X-RateLimit-Remaining.yaml"
+  X-RateLimit-Reset:
+    $ref: "../../headers/X-RateLimit-Reset.yaml"
