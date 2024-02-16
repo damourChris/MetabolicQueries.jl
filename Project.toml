@@ -1,6 +1,6 @@
-name = "BiGGQuery"
+name = "MetabolicQueries"
 uuid = "f0427d59-bd99-4e1a-9805-3e4857bdd396"
-authors = ["Christopher Damour < 129872252+damourChris@users.noreply.github.com >"]
+authors = ["Christopher Damour < damourChris0@gmail.com >"]
 version = "0.1.0"
 
 [deps]
