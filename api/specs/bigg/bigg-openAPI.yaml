@@ -1,0 +1,72 @@
+openapi: "3.0.0"
+info:
+  version: 3.0.0
+  title: BiGG API
+  contact:
+    name: Chris Damour
+    email: c.damour@student.maastrichtuniversity.nl
+    url: https://github.com/damourChris/MetabolicQueries.jl
+  description: "The BiGG API provides programmatic access to metabolic models and associated data. The API is designed to be RESTful and is organized around the following resources: models, reactions, metabolites, genes, and universal reactions and metabolites."
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: https://bigg.ucsd.edu/api/v2
+    description: BiGG API
+tags:
+  - name: Models
+    description: Operations related to models
+  - name: Reactions
+    description: Operations related to reactions
+  - name: Metabolites
+    description: Operations related to metabolites
+  - name: Genes
+    description: Operations related to genes
+  - name: Universals
+    description: Operations related to universal reactions and metabolites
+  - name: Search
+    description: Operations related to search
+  - name: Misc
+    description: Miscellaneous operations
+paths:
+  /database-versions:
+    $ref: "./resources/database-version.yaml"
+
+  /models:
+    $ref: "./resources/models.yaml"
+  /models/{model_id}:
+    $ref: "./resources/model-details.yaml"
+  /models/{model_id}/reactions:
+    $ref: "./resources/model-reactions.yaml"
+  /models/{model_id}/reactions/{reaction_id}:
+    $ref: "./resources/model-reaction-details.yaml"
+  /models/{model_id}/metabolites:
+    $ref: "./resources/model-metabolites.yaml"
+  /models/{model_id}/metabolites/{metabolite_id}:
+    $ref: "./resources/model-metabolite-details.yaml"
+  /models/{model_id}/genes:
+    $ref: "./resources/model-genes.yaml"
+  /models/{model_id}/genes/{gene_id}:
+    $ref: "./resources/model-gene-details.yaml"
+
+  /universals/reactions:
+    $ref: "./resources/universal-reactions.yaml"
+  /universals/reactions/{reaction_id}:
+    $ref: "./resources/universal-reaction-details.yaml"
+  /universals/metabolites:
+    $ref: "./resources/universal-metabolites.yaml"
+  /universal/metabolites/{metabolite_id}:
+    $ref: "./resources/universal-metabolite-details.yaml"
+
+  /search:
+    $ref: "./resources/search.yaml"
+
+components:
+  parameters:
+    $ref: "./parameters/_index.yaml"
+  schemas:
+    $ref: "./schemas/_index.yaml"
+  responses:
+    $ref: "./responses/_index.yaml"
+  headers:
+    $ref: "./headers/_index.yaml"
