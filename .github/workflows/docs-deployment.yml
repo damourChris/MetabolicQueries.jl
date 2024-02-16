@@ -1,4 +1,4 @@
-name: CI
+name: Docs Deplyoment
 on:
   # push:
   #   branches:
@@ -14,53 +14,6 @@ concurrency:
   cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 
 jobs:
-  test:
-    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }} - ${{ github.event_name }}
-    permissions:
-      actions: write
-      contents: read
-    runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.allow_failure }}
-    strategy:
-      fail-fast: false
-      matrix:
-        version:
-          - '1.9'
-          - '1'
-          - 'nightly'
-        os:
-          - ubuntu-latest
-        arch:
-          - x64
-        include:
-          - version: '1.9'
-            allow_failure: false
-          - version: '1'
-            allow_failure: true
-          - version: 'nightly'
-            allow_failure: true
-
-    steps:
-      - uses: actions/checkout@v4
-
-      # Install test dependencies
-      - uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
-          packages: expect
-          version: 1.0
-
-      # Install Julia
-      - uses: julia-actions/setup-julia@latest
-        with:
-          version: ${{ matrix.version }}
-          arch: ${{ matrix.arch }}
-
-      # Cache everything
-      - uses: julia-actions/cache@v1
-
-      # Run the tests
-      - uses: julia-actions/julia-runtest@latest
-
   docs:
     name: Documentation
     permissions:
