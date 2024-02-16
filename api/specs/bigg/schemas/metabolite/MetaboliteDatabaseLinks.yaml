@@ -1,0 +1,18 @@
+type: object
+properties:
+  InChI:
+    $ref: "../misc/DatabaseLink.yaml"
+  Reactome Compound:
+    $ref: "../misc/DatabaseLink.yaml"
+  SEED Compound:
+    $ref: "../misc/DatabaseLink.yaml"
+  CHEBI:
+    $ref: "../misc/DatabaseLink.yaml"
+  Human Metabolome Database:
+    $ref: "../misc/DatabaseLink.yaml"
+  MetaNetX (MNX) Chemical:
+    $ref: "../misc/DatabaseLink.yaml"
+  KEGG Compound:
+    $ref: "../misc/DatabaseLink.yaml"
+  BioCyc:
+    $ref: "../misc/DatabaseLink.yaml"

@@ -1,0 +1,16 @@
+type: object
+properties:
+  RHEA:
+    $ref: "../misc/DatabaseLink.yaml"
+  KEGG Reaction:
+    $ref: "../misc/DatabaseLink.yaml"
+  BioCyc:
+    $ref: "../misc/DatabaseLink.yaml"
+  Reactome Reaction:
+    $ref: "../misc/DatabaseLink.yaml"
+  EC Number:
+    $ref: "../misc/DatabaseLink.yaml"
+  SEED Reaction:
+    $ref: "../misc/DatabaseLink.yaml"
+  MetaNetX (MNX) Equation:
+    $ref: "../misc/DatabaseLink.yaml"

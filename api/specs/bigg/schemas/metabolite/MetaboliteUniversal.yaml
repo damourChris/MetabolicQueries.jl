@@ -1,0 +1,34 @@
+allOf:
+  - $ref: "../misc/MetaData.yaml"
+  - type: object
+    properties:
+      database_links:
+        $ref: "./MetaboliteDatabaseLinks.yaml"
+      formulae:
+        type: array
+        maxItems: 100
+        items:
+          type: string
+          pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
+          maxLength: 100
+      old_identifiers:
+        type: array
+        maxItems: 10
+        items:
+          type: string
+          pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
+          maxLength: 100
+      charges:
+        type: array
+        maxItems: 100
+        items:
+          type: integer
+          format: int32
+          maximum: 10
+          minimum: -10
+      compartments_in_models:
+        type: array
+        maxItems: 150
+        items:
+          $ref: "../misc/MetaData.yaml"
+    additionalProperties: false

@@ -1,0 +1,7 @@
+type: object
+properties:
+  NCBI Entrez Gene:
+    $ref: "../misc/DatabaseLink.yaml"
+  Saccharomyces Genome Database:
+    $ref: "../misc/DatabaseLink.yaml"
+additionalProperties: false

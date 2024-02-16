@@ -1,0 +1,20 @@
+type: object
+properties:
+  bigg_id:
+    type: string
+    maxLength: 100
+    pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
+  name:
+    type: string
+    maxLength: 100
+    pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
+  organism:
+    type: string
+    maxLength: 150
+    pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
+  model_bigg_id:
+    type: string
+    maxLength: 150
+    pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
+required:
+  - bigg_id

@@ -1,0 +1,16 @@
+type: object
+properties:
+  results:
+    type: array
+    maxItems: 10000
+    items:
+      type: object
+  results_count:
+    type: integer
+    format: int32
+    maximum: 10000
+    minimum: 0
+additionalProperties: false
+required:
+  - results
+  - results_count

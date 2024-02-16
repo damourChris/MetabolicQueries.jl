@@ -1,0 +1,10 @@
+allOf:
+  - $ref: "./ErrorResponse.yaml"
+  - type: object
+    properties:
+      validationErrors:
+        type: array
+        items:
+          $ref: "./ErrorResponse.yaml"
+        description: An array of validation errors.
+        maxItems: 10

@@ -1,0 +1,10 @@
+allOf:
+  - $ref: "../misc/MetaData.yaml"
+  - type: object
+    properties:
+      gene_count:
+        type: integer
+      reaction_count:
+        type: integer
+      metabolite_count:
+        type: integer

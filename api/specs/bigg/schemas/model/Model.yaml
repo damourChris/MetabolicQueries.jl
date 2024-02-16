@@ -1,0 +1,59 @@
+allOf:
+  - $ref: "../misc/MetaData.yaml"
+  - type: object
+    properties:
+      genome_name:
+        type: string
+        maxLength: 100
+        pattern: "^NC_[A-Z0-9]{6}.[0-9]|GCF_[0-9]{9}.[0-9]"
+      last_updated:
+        type: string
+        format: date-time
+        maxLength: 100
+      xml_gz_size:
+        type: string
+        pattern: "^[0-9]+[MG]B$"
+        maxLength: 100
+      mat_gz_size:
+        type: string
+        pattern: "^[0-9]+[MG]B$"
+        maxLength: 100
+      mat_size:
+        type: string
+        pattern: "^[0-9]+[MG]B$"
+        maxLength: 100
+      xml_size:
+        type: string
+        pattern: "^[0-9]+[MG]B$"
+        maxLength: 100
+      json_size:
+        type: string
+        pattern: "^[0-9]+[MG]B$"
+        maxLength: 100
+      json_gz_size:
+        type: string
+        pattern: "^[0-9]+[MG]B$"
+        maxLength: 100
+      genome_ref_string:
+        type: string
+        maxLength: 100
+        pattern: "^ncbi_assembly:(NC_[A-Z0-9]{6}.[0-9]|GCF_[0-9]{9}.[0-9])"
+      reference_type:
+        type: string
+        enum:
+          - pmid
+      PMID:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 2147483647
+      published_filename:
+        type: string
+        maxLength: 100
+        pattern: "^[a-zA-Z0-9_]*$"
+      escher_maps:
+        type: array
+        maxItems: 10
+        items:
+          type: object
+    additionalProperties: false
