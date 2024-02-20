@@ -1,0 +1,17 @@
+extends:
+  - recommended
+
+apis:
+  bigg@v2:
+    root: ./bigg/openapi.yaml
+    rules:
+      no-ambiguous-paths: error  
+
+theme:
+  openapi:
+    schemaExpansionLevel: 2
+    requiredPropsFirst: true
+    theme:
+      sidebar:
+        backgroundColor: '#ffffff'
+    
