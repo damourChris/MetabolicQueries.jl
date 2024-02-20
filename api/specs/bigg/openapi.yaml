@@ -64,17 +64,17 @@ paths:
 components:
   parameters:
     model_id:
-      $ref: "./parameters/model-id.yaml"
+      $ref: "./parameters/model_id.yaml"
     gene_id:
-      $ref: "./parameters/gene-id.yaml"
+      $ref: "./parameters/gene_id.yaml"
     metabolite_id:
-      $ref: "./parameters/metabolite-id.yaml"
+      $ref: "./parameters/metabolite_id.yaml"
     reaction_id:
-      $ref: "./parameters/reaction-id.yaml"
+      $ref: "./parameters/reaction_id.yaml"
     query:
       $ref: "./parameters/query.yaml"
     search_type:
-      $ref: "./parameters/search-type.yaml"
+      $ref: "./parameters/search_type.yaml"
   responses:
     Accepted:
       $ref: "./responses/2xx/Accepted.yaml"
