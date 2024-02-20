@@ -2,8 +2,8 @@ extends:
   - recommended
 
 apis:
-  bigg@v2:
-    root: ./bigg/openapi.yaml
+  bigg:
+    root: ./specs/bigg/openapi.yaml
     rules:
       no-ambiguous-paths: error  
 
