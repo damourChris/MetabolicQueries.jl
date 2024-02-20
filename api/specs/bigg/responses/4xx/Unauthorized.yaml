@@ -2,11 +2,11 @@ description: Unauthorized
 content:
   application/json:
     schema:
-      $ref: "../../schemas/errors/ErrorResponse.yaml"
+      $ref: "../../openapi.yaml#/components/schemas/ErrorResponse"
 headers:
   X-RateLimit-Limit:
-    $ref: "../../headers/X-RateLimit-Limit.yaml"
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Limit"
   X-RateLimit-Remaining:
-    $ref: "../../headers/X-RateLimit-Remaining.yaml"
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Remaining"
   X-RateLimit-Reset:
-    $ref: "../../headers/X-RateLimit-Reset.yaml"
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Reset"

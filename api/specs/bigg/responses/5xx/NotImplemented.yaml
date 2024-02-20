@@ -2,4 +2,4 @@ description: Not Implemented
 content:
   application/json:
     schema:
-      $ref: "../../schemas/errors/ServerError.yaml"
+      $ref: "../../openapi.yaml#/components/schemas/ServerError"

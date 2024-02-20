@@ -2,13 +2,13 @@ description: Too Many Requests
 content:
   application/json:
     schema:
-      $ref: "../../schemas/errors/ValidationError.yaml"
+      $ref: "../../openapi.yaml#/components/schemas/RateLimitExceeded"
 headers:
   Retry-After:
-    $ref: "../../headers/Retry-After.yaml"
+    $ref: "../../openapi.yaml#/components/headers/Retry-After"
   X-RateLimit-Limit:
-    $ref: "../../headers/X-RateLimit-Limit.yaml"
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Limit"
   X-RateLimit-Remaining:
-    $ref: "../../headers/X-RateLimit-Remaining.yaml"
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Remaining"
   X-RateLimit-Reset:
-    $ref: "../../headers/X-RateLimit-Reset.yaml"
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Reset"
