@@ -1,0 +1,39 @@
+get:
+  summary: Get all universal reactions
+  description: Get all universal reactions
+  tags: [Reactions]
+  operationId: getUniversalReactions
+  responses:
+    "200":
+      description: A list of universal reactions
+      content:
+        application/json:
+          schema:
+            type: array
+            maxItems: 50000
+            items:
+              $ref: "../openapi.yaml#/components/schemas/MetaData"
+      headers:
+        X-RateLimit-Limit:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Limit"
+        X-RateLimit-Remaining:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Remaining"
+        X-RateLimit-Reset:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Reset"
+    "400":
+      $ref: "../openapi.yaml#/components/responses/BadRequest"
+    "401":
+      $ref: "../openapi.yaml#/components/responses/Unauthorized"
+    "404":
+      $ref: "../openapi.yaml#/components/responses/NotFound"
+    "408":
+      $ref: "../openapi.yaml#/components/responses/RequestTimeout"
+    "429":
+      $ref: "../openapi.yaml#/components/responses/TooManyRequests"
+    "500":
+      $ref: "../openapi.yaml#/components/responses/InternalServer"
+    "503":
+      $ref: "../openapi.yaml#/components/responses/ServiceUnavailable"
+  security:
+    - OAuth2:
+        - read:data

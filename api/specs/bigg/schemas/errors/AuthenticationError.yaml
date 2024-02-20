@@ -1,0 +1,9 @@
+allOf:
+  - $ref: "./ErrorResponse.yaml"
+  - type: object
+    properties:
+      authUrl:
+        type: string
+        format: uri
+        description: URL to redirect the client to for authentication.
+        maxLength: 100

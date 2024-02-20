@@ -1,0 +1,187 @@
+openapi: "3.1.0"
+info:
+  version: 3.0.0
+  title: BiGG API
+  contact:
+    name: Chris Damour
+    email: c.damour@student.maastrichtuniversity.nl
+    url: https://github.com/damourChris/MetabolicQueries.jl
+  description: "The BiGG API provides programmatic access to metabolic models and associated data. The API is designed to be RESTful and is organized around the following resources: models, reactions, metabolites, genes, and universal reactions and metabolites."
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: https://bigg.ucsd.edu/api/v2
+    description: BiGG API
+tags:
+  - name: Genes
+    description: Operations related to genes
+  - name: Metabolites
+    description: Operations related to metabolites
+  - name: Misc
+    description: Miscellaneous operations
+  - name: Models
+    description: Operations related to models
+  - name: Reactions
+    description: Operations related to reactions
+  - name: Search
+    description: Operations related to search
+  - name: Universals
+    description: Operations related to universal reactions and metabolites
+paths:
+  /database-versions:
+    $ref: "./resources/database-version.yaml"
+
+  /models:
+    $ref: "./resources/models.yaml"
+  /models/{model_id}:
+    $ref: "./resources/model-details.yaml"
+  /models/{model_id}/reactions:
+    $ref: "./resources/model-reactions.yaml"
+  /models/{model_id}/reactions/{reaction_id}:
+    $ref: "./resources/model-reaction-details.yaml"
+  /models/{model_id}/metabolites:
+    $ref: "./resources/model-metabolites.yaml"
+  /models/{model_id}/metabolites/{metabolite_id}:
+    $ref: "./resources/model-metabolite-details.yaml"
+  /models/{model_id}/genes:
+    $ref: "./resources/model-genes.yaml"
+  /models/{model_id}/genes/{gene_id}:
+    $ref: "./resources/model-gene-details.yaml"
+
+  /universals/reactions:
+    $ref: "./resources/universal-reactions.yaml"
+  /universals/reactions/{reaction_id}:
+    $ref: "./resources/universal-reaction-details.yaml"
+  /universals/metabolites:
+    $ref: "./resources/universal-metabolites.yaml"
+  /universal/metabolites/{metabolite_id}:
+    $ref: "./resources/universal-metabolite-details.yaml"
+
+  /search:
+    $ref: "./resources/search.yaml"
+
+components:
+  parameters:
+    model_id:
+      $ref: "./parameters/model_id.yaml"
+    gene_id:
+      $ref: "./parameters/gene_id.yaml"
+    metabolite_id:
+      $ref: "./parameters/metabolite_id.yaml"
+    reaction_id:
+      $ref: "./parameters/reaction_id.yaml"
+    query:
+      $ref: "./parameters/query.yaml"
+    search_type:
+      $ref: "./parameters/search_type.yaml"
+  responses:
+    Accepted:
+      $ref: "./responses/2xx/Accepted.yaml"
+    Created:
+      $ref: "./responses/2xx/Created.yaml"
+    NoContent:
+      $ref: "./responses/2xx/NoContent.yaml"
+    NotModified:
+      $ref: "./responses/2xx/NotModified.yaml"
+    BadRequest:
+      $ref: "./responses/4xx/BadRequest.yaml"
+    Unauthorized:
+      $ref: "./responses/4xx/Unauthorized.yaml"
+    Conflict:
+      $ref: "./responses/4xx/Conflict.yaml"
+    Forbidden:
+      $ref: "./responses/4xx/Forbidden.yaml"
+    Gone:
+      $ref: "./responses/4xx/Gone.yaml"
+    MethodNotAllowed:
+      $ref: "./responses/4xx/MethodNotAllowed.yaml"
+    NotAcceptable:
+      $ref: "./responses/4xx/NotAcceptable.yaml"
+    NotFound:
+      $ref: "./responses/4xx/NotFound.yaml"
+    PayloadTooLarge:
+      $ref: "./responses/4xx/PayloadTooLarge.yaml"
+    RequestTimeout:
+      $ref: "./responses/4xx/RequestTimeout.yaml"
+    TooManyRequests:
+      $ref: "./responses/4xx/TooManyRequests.yaml"
+    UnprocessableEntity:
+      $ref: "./responses/4xx/UnprocessableEntity.yaml"
+    UnsupportedMediaType:
+      $ref: "./responses/4xx/UnsupportedMediaType.yaml"
+    BadGateway:
+      $ref: "./responses/5xx/BadGateway.yaml"
+    GatewayTimeout:
+      $ref: "./responses/5xx/GatewayTimeout.yaml"
+    InternalServer:
+      $ref: "./responses/5xx/InternalServer.yaml"
+    NotImplemented:
+      $ref: "./responses/5xx/NotImplemented.yaml"
+    ServiceUnavailable:
+      $ref: "./responses/5xx/ServiceUnavailable.yaml"
+  schemas:
+    ErrorResponse:
+      $ref: "./schemas/errors/ErrorResponse.yaml"
+    ValidationError:
+      $ref: "./schemas/errors/ValidationError.yaml"
+    AuthenticationError:
+      $ref: "./schemas/errors/AuthenticationError.yaml"
+    RateLimitExceeded:
+      $ref: "./schemas/errors/RateLimitExceeded.yaml"
+    ServerError:
+      $ref: "./schemas/errors/ServerError.yaml"
+    Gene:
+      $ref: "./schemas/gene/Gene.yaml"
+    GeneDatabaseLinks:
+      $ref: "./schemas/gene/GeneDatabaseLinks.yaml"
+    Reaction:
+      $ref: "./schemas/reaction/Reaction.yaml"
+    ReactionUniversal:
+      $ref: "./schemas/reaction/ReactionUniversal.yaml"
+    ReactionDatabaseLinks:
+      $ref: "./schemas/reaction/ReactionDatabaseLinks.yaml"
+    Metabolite:
+      $ref: "./schemas/metabolite/Metabolite.yaml"
+    MetaboliteUniversal:
+      $ref: "./schemas/metabolite/MetaboliteUniversal.yaml"
+    MetaboliteDatabaseLinks:
+      $ref: "./schemas/metabolite/MetaboliteDatabaseLinks.yaml"
+    Model:
+      $ref: "./schemas/model/Model.yaml"
+    DatabaseVersion:
+      $ref: "./schemas/misc/DatabaseVersion.yaml"
+    MetaData:
+      $ref: "./schemas/misc/MetaData.yaml"
+    ModelRef:
+      $ref: "./schemas/misc/ModelRef.yaml"
+    DatabaseLink:
+      $ref: "./schemas/misc/DatabaseLink.yaml"
+    SearchResults:
+      $ref: "./schemas/search/SearchResults.yaml"
+
+  headers:
+    Retry-After:
+      $ref: "./headers/Retry-After.yaml"
+    X-RateLimit-Limit:
+      $ref: "./headers/X-RateLimit-Limit.yaml"
+    X-RateLimit-Remaining:
+      $ref: "./headers/X-RateLimit-Remaining.yaml"
+    X-RateLimit-Reset:
+      $ref: "./headers/X-RateLimit-Reset.yaml"
+  securitySchemes:
+    API-Key:
+      name: API-Key
+      in: header
+      type: apiKey
+    OAuth2:
+      type: oauth2
+      description: A bearer token in the format of a JWS and conforms to the specifications included in RFC8725.
+      flows:
+        implicit:
+          authorizationUrl: https://bigg.ucsd.edu/api/v2/oauth2/authorize
+          scopes:
+            read:data: Read access to the BiGG API
+            read: Read access to the BiGG API
+            write: Write access to the BiGG API
+            admin: Admin access to the BiGG API

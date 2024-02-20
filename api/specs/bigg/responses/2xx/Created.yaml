@@ -1,0 +1,20 @@
+description: Created
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          format: const
+          maxLength: 100
+          maxItems: 1
+      required:
+        - message
+headers:
+  X-RateLimit-Limit:
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Limit"
+  X-RateLimit-Remaining:
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Remaining"
+  X-RateLimit-Reset:
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Reset"

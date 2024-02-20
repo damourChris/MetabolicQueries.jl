@@ -1,0 +1,22 @@
+type: object
+properties:
+  api_version:
+    type: string
+    format: version
+    maxItems: 1
+    maxLength: 100
+  last_updated:
+    type: string
+    format: date-time
+    maxItems: 1
+    maxLength: 100
+  bigg_models_version:
+    type: string
+    format: version
+    maxItems: 1
+    maxLength: 100
+additionalProperties: false
+required:
+  - api_version
+  - last_updated
+  - bigg_models_version

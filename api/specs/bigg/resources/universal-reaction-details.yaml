@@ -1,0 +1,38 @@
+parameters:
+  - $ref: "../openapi.yaml#/components/parameters/reaction_id"
+get:
+  summary: Get a universal reaction details by ID
+  description: Get a universal reaction details by ID
+  tags: [Reactions]
+  operationId: getUniversalReactionDetails
+  responses:
+    "200":
+      description: Universal reaction details
+      content:
+        application/json:
+          schema:
+            $ref: "../openapi.yaml#/components/schemas/ReactionUniversal"
+      headers:
+        X-RateLimit-Limit:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Limit"
+        X-RateLimit-Remaining:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Remaining"
+        X-RateLimit-Reset:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Reset"
+    "400":
+      $ref: "../openapi.yaml#/components/responses/BadRequest"
+    "401":
+      $ref: "../openapi.yaml#/components/responses/Unauthorized"
+    "404":
+      $ref: "../openapi.yaml#/components/responses/NotFound"
+    "408":
+      $ref: "../openapi.yaml#/components/responses/RequestTimeout"
+    "429":
+      $ref: "../openapi.yaml#/components/responses/TooManyRequests"
+    "500":
+      $ref: "../openapi.yaml#/components/responses/InternalServer"
+    "503":
+      $ref: "../openapi.yaml#/components/responses/ServiceUnavailable"
+  security:
+    - OAuth2:
+        - read:data

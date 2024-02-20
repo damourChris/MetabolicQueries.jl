@@ -1,0 +1,41 @@
+parameters:
+  - $ref: "../openapi.yaml#/components/parameters/model_id"
+get:
+  summary: Get all reactions for a model
+  description: Get all reactions for a model
+  tags: [Reactions]
+  operationId: getModelReactions
+  responses:
+    "200":
+      description: A list of reactions
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../openapi.yaml#/components/schemas/Reaction"
+            maxItems: 10000
+      headers:
+        X-RateLimit-Limit:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Limit"
+        X-RateLimit-Remaining:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Remaining"
+        X-RateLimit-Reset:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Reset"
+    "400":
+      $ref: "../openapi.yaml#/components/responses/BadRequest"
+    "401":
+      $ref: "../openapi.yaml#/components/responses/Unauthorized"
+    "404":
+      $ref: "../openapi.yaml#/components/responses/NotFound"
+    "408":
+      $ref: "../openapi.yaml#/components/responses/RequestTimeout"
+    "429":
+      $ref: "../openapi.yaml#/components/responses/TooManyRequests"
+    "500":
+      $ref: "../openapi.yaml#/components/responses/InternalServer"
+    "503":
+      $ref: "../openapi.yaml#/components/responses/ServiceUnavailable"
+  security:
+    - OAuth2:
+        - read:data

@@ -1,0 +1,25 @@
+type: object
+properties:
+  message:
+    type: string
+    description: A short description of the error.
+    format: error-message
+    maxItems: 1
+    maxLength: 100
+  details:
+    type: array
+    items:
+      type: string
+      format: const
+      maxItems: 1
+      maxLength: 100
+    description: Additional details about the error.
+    minItems: 1
+    maxItems: 10
+    uniqueItems: true
+  error_code:
+    type: string
+    description: A unique identifier for the error.
+    format: error-code
+    maxItems: 1
+    maxLength: 100

@@ -1,0 +1,11 @@
+description: How long to wait before retrying the request
+schema:
+  oneOf:
+    - type: string
+      format: date-time
+      maxLength: 100
+    - type: integer
+      format: int32
+      minimum: 3
+      maximum: 4294967295
+      description: The number of seconds to wait before retrying the request

@@ -1,0 +1,11 @@
+name: search_type
+in: query
+required: true
+description: The type of search
+schema:
+  type: string
+  enum:
+    - models
+    - reactions
+    - metabolites
+    - genes

@@ -1,0 +1,5 @@
+description: Service Unavailable
+content:
+  application/json:
+    schema:
+      $ref: "../../openapi.yaml#/components/schemas/ServerError"

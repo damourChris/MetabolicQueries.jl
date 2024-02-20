@@ -1,0 +1,9 @@
+allOf:
+  - $ref: "./ErrorResponse.yaml"
+  - type: object
+    properties:
+      supportEmail:
+        type: string
+        format: email
+        description: Contact email for reporting issues.
+        maxLength: 100

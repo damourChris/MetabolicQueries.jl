@@ -1,0 +1,8 @@
+name: query
+in: query
+required: true
+description: The search query
+schema:
+  type: string
+  pattern: "^[a-zA-Z0-9_]+$"
+  maxLength: 100

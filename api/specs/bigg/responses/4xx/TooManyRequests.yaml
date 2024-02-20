@@ -1,0 +1,14 @@
+description: Too Many Requests
+content:
+  application/json:
+    schema:
+      $ref: "../../openapi.yaml#/components/schemas/RateLimitExceeded"
+headers:
+  Retry-After:
+    $ref: "../../openapi.yaml#/components/headers/Retry-After"
+  X-RateLimit-Limit:
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Limit"
+  X-RateLimit-Remaining:
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Remaining"
+  X-RateLimit-Reset:
+    $ref: "../../openapi.yaml#/components/headers/X-RateLimit-Reset"

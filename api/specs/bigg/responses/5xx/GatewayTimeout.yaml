@@ -1,0 +1,5 @@
+description: Gateway Timeout
+content:
+  application/json:
+    schema:
+      $ref: "../../openapi.yaml#/components/schemas/ServerError"

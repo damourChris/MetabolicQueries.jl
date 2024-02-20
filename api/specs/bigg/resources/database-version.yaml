@@ -1,0 +1,34 @@
+get:
+  summary: Get the database version
+  description: Get the database version
+  tags: [Misc]
+  operationId: getDatabaseVersion
+  responses:
+    "200":
+      description: The database version
+      content:
+        application/json:
+          schema:
+            $ref: "../openapi.yaml#/components/schemas/DatabaseVersion"
+      headers:
+        X-RateLimit-Limit:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Limit"
+        X-RateLimit-Remaining:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Remaining"
+        X-RateLimit-Reset:
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Reset"
+    "400":
+      $ref: "../openapi.yaml#/components/responses/BadRequest"
+    "401":
+      $ref: "../openapi.yaml#/components/responses/Unauthorized"
+    "408":
+      $ref: "../openapi.yaml#/components/responses/RequestTimeout"
+    "429":
+      $ref: "../openapi.yaml#/components/responses/TooManyRequests"
+    "500":
+      $ref: "../openapi.yaml#/components/responses/InternalServer"
+    "503":
+      $ref: "../openapi.yaml#/components/responses/ServiceUnavailable"
+  security:
+    - OAuth2:
+        - read:data

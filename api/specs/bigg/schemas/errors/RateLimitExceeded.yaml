@@ -1,0 +1,21 @@
+allOf:
+  - $ref: "./ErrorResponse.yaml"
+  - type: object
+    properties:
+      limit:
+        type: integer
+        format: int32
+        maximum: 30
+        minimum: 1
+        description: The maximum number of requests allowed in the given time window.
+      remaining:
+        type: integer
+        format: int32
+        maximum: 30
+        minimum: 0
+        description: The number of requests left for the time window.
+      resetTime:
+        type: string
+        format: date-time
+        description: The time when the rate limit will reset.
+        maxLength: 100

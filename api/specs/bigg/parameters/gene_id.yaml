@@ -1,0 +1,8 @@
+name: gene_id
+in: path
+required: true
+description: The ID of the gene
+schema:
+  type: string
+  pattern: "^[a-zA-Z0-9_]+$"
+  maxLength: 100
