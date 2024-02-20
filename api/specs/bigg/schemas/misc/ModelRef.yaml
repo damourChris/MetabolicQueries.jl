@@ -4,7 +4,16 @@ allOf:
     properties:
       gene_count:
         type: integer
+        format: int32
+        maximum: 2147483647
+        minimum: 0
       reaction_count:
         type: integer
+        format: int32
+        maximum: 2147483647
+        minimum: 0
       metabolite_count:
         type: integer
+        format: int32
+        maximum: 2147483647
+        minimum: 0

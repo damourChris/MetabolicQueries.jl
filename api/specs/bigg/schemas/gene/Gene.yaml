@@ -9,8 +9,12 @@ allOf:
           $ref: "../misc/MetaData.yaml"
       genome_name:
         type: string
+        maxLength: 100
+        pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
       chromosome_ncbi_accession:
         type: string
+        maxLength: 100
+        pattern: ^[a-zA-Z_][a-zA-Z0-9_]*$
       rightpos:
         type: integer
         format: int32
