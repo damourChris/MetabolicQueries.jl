@@ -1,6 +1,6 @@
 parameters:
-  - $ref: "../parameters/model-id.yaml"
-  - $ref: "../parameters/gene-id.yaml"
+  - $ref: "../openapi.yaml#/components/parameters/model_id"
+  - $ref: "../openapi.yaml#/components/parameters/gene_id"
 get:
   summary: Get a gene details by ID
   description: Get a gene details by ID
@@ -12,26 +12,28 @@ get:
       content:
         application/json:
           schema:
-            type: object
-            # $ref: "#/components/schemas/GeneDetails"
+            $ref: "../openapi.yaml#/components/schemas/Gene"
       headers:
         X-RateLimit-Limit:
-          $ref: "../headers/X-RateLimit-Limit.yaml"
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Limit"
         X-RateLimit-Remaining:
-          $ref: "../headers/X-RateLimit-Remaining.yaml"
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Remaining"
         X-RateLimit-Reset:
-          $ref: "../headers/X-RateLimit-Reset.yaml"
+          $ref: "../openapi.yaml#/components/headers/X-RateLimit-Reset"
     "400":
-      $ref: "../responses/4xx/BadRequest.yaml"
+      $ref: "../openapi.yaml#/components/responses/BadRequest"
+    "401":
+      $ref: "../openapi.yaml#/components/responses/Unauthorized"
     "404":
-      $ref: "../responses/4xx/NotFound.yaml"
+      $ref: "../openapi.yaml#/components/responses/NotFound"
     "408":
-      $ref: "../responses/4xx/RequestTimeout.yaml"
+      $ref: "../openapi.yaml#/components/responses/RequestTimeout"
     "429":
-      $ref: "../responses/4xx/TooManyRequests.yaml"
+      $ref: "../openapi.yaml#/components/responses/TooManyRequests"
     "500":
-      $ref: "../responses/5xx/InternalServer.yaml"
+      $ref: "../openapi.yaml#/components/responses/InternalServer"
     "503":
-      $ref: "../responses/5xx/ServiceUnavailable.yaml"
+      $ref: "../openapi.yaml#/components/responses/ServiceUnavailable"
   security:
-    - api_key: []
+    - OAuth2:
+        - read:data
